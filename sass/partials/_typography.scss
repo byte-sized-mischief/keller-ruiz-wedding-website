@@ -1,0 +1,109 @@
+@use "colors" as colors;
+
+// Typography partial
+
+// Local font-face declarations
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('../../fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+// Font variables
+$heading-font: 'Dancing Script', cursive;
+$detail-font: 'EB Garamond', serif;
+$font-body: 'EB Garamond', serif;
+$serif: 'EB Garamond', serif;
+$accent-font: 'EB Garamond', serif;
+
+// Weights
+
+$light: 300;
+$normal: 400;
+$semibold: 500;
+$bold: 700;
+
+// Sizes
+
+$font-size-h1: 60px;
+$font-size-h2: 40px;
+$font-size-h3: 24px;
+$font-size-h4: 18px;
+$font-size-h5: 18px;
+$font-size-p: 18px;
+$nav-font-size: 13px;
+$blog-post-title: 11px;
+
+// Responsive Sizes
+
+$responsive-h1: 40px;
+
+// Line height
+
+$base-line-height: 29px;
+
+// Styles
+
+/* ==========================================================================
+Typography
+========================================================================== */
+p {
+  font-size: $font-size-p;
+  line-height: $base-line-height;
+  color: colors.$txt-primary;
+  padding-bottom: 20px;
+}
+
+h1 {
+  font-size: $font-size-h1;
+}
+
+h2 {
+  font-size: $font-size-h2;
+  font-weight: $light;
+  color: colors.$h2-color;
+}
+
+h3 {
+  color: colors.$h3-color;
+  font-size: $font-size-h4;
+  font-weight: $bold;
+  letter-spacing: 3px;
+  line-height: $base-line-height;
+}
+
+h4 {
+  font-size: $font-size-h4;
+}
+
+h5 {
+  font-size: $font-size-h5;
+  color: colors.$h5-color;
+  text-transform: uppercase;
+  font-weight: $semibold;
+}
+
+.date {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-family: "Dancing Script", serif;
+  letter-spacing: 0.08em;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7), 0 0 15px rgba(0,0,0,0.3);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font;
+}
+p, .form-group, .form-group input, .form-group select, .form-group textarea, .form-detail, .section-detail {
+  font-family: $detail-font;
+}

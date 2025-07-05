@@ -1,0 +1,1218 @@
+@use "partials/colors" as colors;
+@use "partials/typography" as typography;
+@use "partials/buttons" as buttons;
+@use "partials/luxury-btn";
+
+// Sass variables ported from backup CSS
+$primary-color: #0066cc;
+$secondary-color: #003366;
+$accent-color: #00ccff;
+$text-color: #ffffff;
+$light-text: #ffffff;
+$background-color: transparent;
+$font-main: 'EB Garamond', serif;
+$font-display: 'Dancing Script', serif;
+$font-script: 'Dancing Script', cursive;
+
+// Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
+@import url('https://fonts.googleapis.com/css2?family=Monte+Carlo&display=swap');
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-main;
+  line-height: 1.6;
+  color: $text-color;
+  overflow-x: hidden;
+}
+
+/* Scrolling Background Effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  z-index: -1;
+  background: url('../img/Blue-glitter.jpg') repeat-y center center;
+  background-size: cover;
+  animation: scrollBackground 20s linear infinite;
+}
+
+@keyframes scrollBackground {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@media (max-width: 768px) {
+body {
+    background: url('../img/Blue-glitter.jpg') repeat-y center center !important;
+    background-size: cover !important;
+  }
+  body::before {
+    display: none !important;
+  }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display, $font-script, serif;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  color: $light-text;
+  background: url('../img/hero.jpg?v=2') no-repeat center center;
+  background-size: cover;
+  border: none;
+  margin: 0;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.3);
+  font-size: 4rem;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+}
+
+.date {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-family: $font-display;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation */
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: $light-text;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: $accent-color;
+}
+
+/* Buttons */
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: rgba(0, 204, 255, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  color: $light-text;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 204, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Sections */
+.section {
+  padding: 1.5rem 0;
+  margin: 1rem auto;
+  position: relative;
+  color: $text-color;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+  cursor: pointer;
+  background: rgba(0, 0, 40, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.section:not(#story):hover {
+  transform: translateY(-2px);
+  background: rgba(0, 0, 40, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+#story.section {
+  padding: 3rem 0;
+  cursor: default;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 1;
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.section .container {
+  position: relative;
+  z-index: 2;
+  padding: 0 2rem;
+}
+
+.section h2 {
+  color: $light-text;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.75rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.section-preview {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.section-preview p {
+  color: $light-text;
+  opacity: 0.9;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Links within sections */
+.section a {
+  color: $accent-color;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.section a:hover {
+  color: $light-text;
+  text-decoration: underline;
+}
+
+/* Container adjustments */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Travel and accommodation styles */
+.map {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  @extend .luxury-btn;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.scroll-arrow {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid $light-text;
+  border-radius: 50%;
+  position: relative;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid $light-text;
+  border-bottom: 2px solid $light-text;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* Mobile Navigation */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: $light-text;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: $light-text;
+  transition: transform 0.3s ease;
+}
+
+.nav-toggle span::before {
+  top: -8px;
+}
+
+.nav-toggle span::after {
+  bottom: -8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 1rem 0;
+    margin: 0.75rem auto;
+  }
+
+  .section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-preview {
+    padding: 0.25rem 0;
+  }
+
+  .section p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    white-space: normal;
+    word-spacing: -2px;
+  }
+  
+  .date {
+    font-size: 1.5rem;
+  }
+  
+  .hero-content {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .story-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .engagement-carousel {
+    height: 300px;
+  }
+
+  body::after,
+  body::before {
+    width: 30px;
+    background-size: 30px auto;
+  }
+  
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .date {
+    font-size: 1.25rem;
+  }
+  
+  .hero-content {
+    padding: 1rem;
+  }
+
+  .engagement-carousel {
+    height: 250px;
+  }
+
+  body::after,
+  body::before {
+    display: none;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 0.75rem 0;
+    margin: 0.5rem auto;
+  }
+
+  .section h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus Styles */
+:focus {
+  outline: 3px solid $accent-color;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (forced-colors: active) {
+  .cta-button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Add subtle animation for section entrance */
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure form elements and inputs are readable */
+.section input,
+.section textarea,
+.section select {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: $secondary-color;
+  padding: 0.8rem;
+  border-radius: 8px;
+    width: 100%;
+  margin-bottom: 1rem;
+}
+
+.section input:focus,
+.section textarea:focus,
+.section select:focus {
+  outline: none;
+  border-color: $accent-color;
+  box-shadow: 0 0 0 2px rgba(0, 204, 255, 0.2);
+}
+
+/* Story Section Styles */
+.story-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.story-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: $light-text;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 800px;
+}
+
+.engagement-carousel {
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin: 2rem auto;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-button.prev {
+  left: 1rem;
+}
+
+.carousel-button.next {
+  right: 1rem;
+}
+
+/* RSVP Section Styles */
+.rsvp-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.rsvp-toggle {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.rsvp-toggle.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rsvp-form {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 600px;
+  opacity: 0;
+}
+
+.rsvp-form:not(.collapsed) {
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+}
+
+.rsvp-form .form-inner {
+  background: rgba(0, 10, 40, 0.85);
+  box-shadow: 0 8px 32px 0 rgba(25, 118, 210, 0.18), 0 1.5px 8px 0 #c0c0c033;
+  border-radius: 24px;
+  border: 1.5px solid colors.$accent-color;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 2.5rem 2rem;
+  position: relative;
+}
+.rsvp-form .form-group label {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  color: #fff;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.7rem;
+}
+.rsvp-form .form-group input,
+.rsvp-form .form-group select,
+.rsvp-form .form-group textarea {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  padding: 1.2rem 1.2rem 0.6rem 1.2rem;
+  border-radius: 12px;
+  background: rgba(0,20,60,0.5);
+  color: #fff;
+  border: 1.5px solid colors.$accent-color;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px rgba(25,118,210,0.04);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.rsvp-form .form-group input::placeholder,
+.rsvp-form .form-group textarea::placeholder {
+  color: #c0c0c0;
+  opacity: 1;
+}
+.rsvp-form .form-submit {
+  background: linear-gradient(90deg, colors.$accent-color 0%, #c0c0c0 100%);
+  color: #fff;
+  border: none;
+  padding: 1.1rem 2.2rem;
+  border-radius: 50px;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px #1976d244;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  width: 100%;
+  margin-top: 1.2rem;
+  text-shadow: 0 1px 2px #fff8;
+}
+.rsvp-form .form-submit:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 24px #1976d255;
+  background: linear-gradient(90deg, #c0c0c0 0%, colors.$accent-color 100%);
+}
+
+.form-message {
+  display: none;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.form-message.success {
+  display: block;
+  background: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+}
+
+.form-message.error {
+  display: block;
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff0000;
+}
+
+.form-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: $light-text;
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .rsvp-form .form-inner {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rsvp-form .form-inner {
+    padding: 1rem;
+  }
+}
+
+.form-group input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form-group input[type="number"]::-webkit-outer-spin-button,
+.form-group input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Style the number input when it's invalid */
+.form-group input[type="number"]:invalid {
+  border-color: rgba(255, 0, 0, 0.3);
+}
+
+/* Add a custom validation message */
+.form-group input[type="number"]:invalid:focus {
+  outline: none;
+  border-color: rgba(255, 0, 0, 0.5);
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1);
+}
+
+/* Collapsible Sections */
+.section-header {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.section-header:hover {
+  background: #e9ecef;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.section-toggle {
+  width: 24px;
+  height: 24px;
+    position: relative;
+  transition: transform 0.3s ease;
+}
+
+.section-toggle::before,
+.section-toggle::after {
+  content: '';
+      position: absolute;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.section-toggle::before {
+  width: 2px;
+  height: 16px;
+  top: 4px;
+  left: 11px;
+}
+
+.section-toggle::after {
+  width: 16px;
+  height: 2px;
+  top: 11px;
+  left: 4px;
+}
+
+.section.collapsed .section-toggle::before {
+  transform: rotate(-90deg);
+}
+
+.section-content {
+  padding: 2rem;
+  background: white;
+  transition: all 0.3s ease;
+  max-height: 2000px;
+    opacity: 1;
+}
+
+.section.collapsed .section-content {
+  max-height: 0;
+  padding: 0 2rem;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Modal trigger section */
+.modal-trigger {
+  cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+    width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 20, 0.95);
+  z-index: 1000;
+  overflow-y: auto;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal.show {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 40, 0.95);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+    position: relative;
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+    position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  font-size: 1.8rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-close:hover {
+    opacity: 1;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+/* Custom scrollbar for modal */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Section specific modal styles */
+.details-grid,
+.registry-content,
+.venue-travel {
+  margin-top: 2rem;
+}
+
+.venue-travel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.map-embed {
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Preview text for each section */
+.details-preview,
+.rsvp-preview,
+.help-preview,
+.registry-preview,
+.venue-preview {
+  text-align: center;
+  padding: 0.25rem;
+  color: $light-text;
+  opacity: 0.9;
+}
+
+/* Help section specific styles */
+.help-content {
+  margin-top: 2rem;
+}
+
+.help-content p {
+  color: $light-text;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.volunteer-form-placeholder {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.volunteer-form-placeholder p {
+  color: $light-text;
+  margin-bottom: 1rem;
+}
+
+.volunteer-form-placeholder a {
+  color: $accent-color;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.volunteer-form-placeholder a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section {
+    padding: 1rem 0;
+    margin: 0.75rem auto;
+  }
+
+  .section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-preview {
+    padding: 0.25rem 0;
+  }
+
+  .modal-content {
+    padding: 2rem;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 0.75rem 0;
+    margin: 0.5rem auto;
+  }
+
+  .section h2 {
+    font-size: 1.4rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Detail items in modal */
+.detail-item {
+  margin-bottom: 2rem;
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.detail-item h3 {
+  color: $light-text;
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.detail-item p {
+  color: $light-text;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Honeyfund styles */
+.honeyfund-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.honeyfund-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 204, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: $light-text;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.honeyfund-button:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 204, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  color: $light-text;
+}
+
+.button-text {
+  margin-right: 0.75rem;
+}
+
+.button-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.honeyfund-button:hover .button-icon {
+  transform: translateX(3px) rotate(-10deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .honeyfund-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+// Only enforce white text for button text, not backgrounds
+.button-text, .form-submit, .cta-button, .honeyfund-button, .luxury-btn {
+  color: $light-text !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+// Remove previous global white text rule for .section, .modal, etc. that could affect backgrounds
+// (No background: $light-text or background: white should be present for these elements)
+
+.section, .section p, .section li, .section ul, .section ol, .section h2, .section h3, .section h4, .section h5, .section h6,
+.modal, .modal-content, .modal p, .modal li, .modal ul, .modal ol, .modal h2, .modal h3, .modal h4, .modal h5, .modal h6 {
+  color: $light-text !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+// Hide SVG sparkle background on desktop, show only on mobile
+.svg-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+  display: none;
+}
+@media (max-width: 768px) {
+  .svg-bg {
+    display: block !important;
+  }
+}
+
+.svg-bg svg {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+.rsvp-form .form-group.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.rsvp-form .form-group.checkbox-group label {
+  display: flex;
+  align-items: center;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 0;
+  gap: 0.7em;
+}
+.rsvp-form .form-group.checkbox-group input[type="checkbox"] {
+  width: 1.2em;
+  height: 1.2em;
+  accent-color: colors.$accent-color;
+  margin-right: 0.7em;
+  margin-left: 0;
+}
+.rsvp-form .form-group #volOtherText {
+  margin-left: 2.2em;
+  margin-top: 0.5em;
+  width: 80%;
+  font-size: 1rem;
+  background: rgba(0,20,60,0.5);
+  border-radius: 8px;
+  border: 1.2px solid colors.$accent-color;
+  color: #fff;
+  padding: 0.7em 1em;
+  font-family: 'EB Garamond', serif;
+  display: block;
+}
