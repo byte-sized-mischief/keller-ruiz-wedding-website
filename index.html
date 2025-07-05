@@ -181,7 +181,7 @@
                 <div class="details-grid">
                     <div class="detail-item">
                         <h3>Dress Code</h3>
-                        <p>This is a formal affair with a magical twist. We would like to encourage guests to dress in enchanting evening attire. Think deep blues, soft silvers, and starry accents to bring a touch of magic.</p>
+                        <p>This is a formal affair with a magical twist. We would like to encourage guests to dress in enchanting formal attire. Think deep blues, soft silvers, and starry accents to bring a touch of magic.</p>
         </div>
                     
                     <div class="detail-item">
@@ -191,18 +191,18 @@
 
                     <div class="detail-item">
                         <h3>Ceremony</h3>
-                        <p>The ceremony will begin promptly at [time]. Please arrive at least 30 minutes early to be seated.</p>
+                        <p>The ceremony will begin promptly at 5pm. Please arrive at least 30 minutes early to be seated.</p>
                         <p>We invite you to be fully present with us during our ceremony. Please silence and put away phones and cameras — we promise to share the professional photos soon after!</p>
         </div>
 
                     <div class="detail-item">
                         <h3>Reception</h3>
-                        <p>Placeholder information</p>
+                        <p>Check back soon!</p>
     </div>
 
                     <div class="detail-item">
                         <h3>Travel and Lodging</h3>
-                        <p></p>
+                        <p>Check back soon!</p>
                     </div>
                 </div>
             </div>
@@ -234,60 +234,8 @@
             <div class="modal-content">
                 <button class="modal-close" aria-label="Close volunteer form">&times;</button>
                 <h2>Volunteer Opportunities</h2>
-                <div class="help-content">
-                    <p>We're so grateful for your offer to help! There are many ways you can contribute to making our wedding day magical.</p>
-                    <p>Please let us know how you'd like to help, and we'll get back to you with more details.</p>
-                    <form id="volunteerForm" class="rsvp-form" style="max-width: 600px; margin: 2rem auto;">
-                        <div class="form-inner">
-                            <input type="hidden" name="type" value="volunteer">
-                            <div class="form-group">
-                                <label for="volName">Full Name *</label>
-                                <input type="text" id="volName" name="Name" required maxlength="100">
-                            </div>
-                            <div class="form-group">
-                                <label for="volPhone">Phone Number *</label>
-                                <input type="tel" id="volPhone" name="Phone Number" required maxlength="20">
-                            </div>
-                            <div class="form-group checkbox-group">
-                                <label>How would you like to help? *</label>
-                                <label><input type="checkbox" name="How do you want to help?" value="Venue Flip Thursday"> Venue Flip Thursday</label>
-                                <label><input type="checkbox" name="How do you want to help?" value="Venue Flip Friday"> Venue Flip Friday</label>
-                                <label><input type="checkbox" name="How do you want to help?" value="Clean up Crew"> Clean up Crew</label>
-                                <label><input type="checkbox" id="volOther" name="How do you want to help?" value="Other"> Other</label>
-                                <input type="text" id="volOtherText" name="If other, elaborate:" placeholder="Please specify" style="display:none; margin-top: 0.5em;" maxlength="200">
-                            </div>
-                            <button type="submit" class="form-submit">Submit</button>
-                            <div class="form-message"></div>
-                        </div>
-                    </form>
-                    <script>
-                    document.getElementById('volOther').addEventListener('change', function() {
-                        document.getElementById('volOtherText').style.display = this.checked ? 'block' : 'none';
-                    });
-                    document.getElementById('volunteerForm').addEventListener('submit', async function(e) {
-                        e.preventDefault();
-                        const form = e.target;
-                        const checkboxes = form.querySelectorAll('input[name="How do you want to help?"]:checked');
-                        const helpValues = Array.from(checkboxes).map(cb => cb.value);
-                        const data = {
-                            type: "volunteer",
-                            "Name": form["Name"].value,
-                            "Phone Number": form["Phone Number"].value,
-                            "How do you want to help?": helpValues.join(', '),
-                            "If other, elaborate:": form["If other, elaborate:"].value
-                        };
-                        const response = await fetch('https://script.google.com/macros/s/AKfycbwzxcSl0dkjCCRHOoutOp06VmqyxKBmwJ2nPqfC9xZV9MlOdBPUL7WcjzKix91pEsZD/exec', {
-                            method: 'POST',
-                            body: new URLSearchParams(data),
-                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-                        });
-                        const result = await response.json();
-                        document.querySelector('.form-message').textContent =
-                            result.result === 'success'
-                                ? 'Thank you for volunteering!'
-                                : (result.message || 'There was an error. Please try again.');
-                    });
-                    </script>
+                <div class="form-embed-container">
+                  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeVtdGWgjIXjW4HCMY0qMBoMBDC-byA_Q5il-ZfROsuZ2fEGg/viewform?embedded=true" width="640" height="801" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
             </div>
         </div>
@@ -297,58 +245,9 @@
             <div class="modal-content">
                 <button class="modal-close" aria-label="Close RSVP form">&times;</button>
                 <h2>RSVP</h2>
-                <!-- This shows in the modal when clicked -->
-                <form class="rsvp-form" id="rsvpForm" method="POST">
-                    <div class="form-inner">
-                        <div class="form-group">
-                            <label for="Name">Full Name *</label>
-                            <input type="text" id="Name" name="Name" required maxlength="100">
-            </div>
-                        
-                        <div class="form-group">
-                            <label for="Phone">Phone Number *</label>
-                            <input type="tel" id="Phone" name="Phone Number" required 
-                                   pattern="\+?[\d\s-()]{10,}"
-                                   title="Please enter a valid phone number"
-                                   maxlength="20">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="Email">Email *</label>
-                            <input type="email" id="Email" name="Email" required maxlength="100">
-                    </div>
-                        
-                        <div class="form-group">
-                            <label for="Extras">Number of Guests (including yourself) *</label>
-                            <input type="number" id="Extras" name="Extras" required 
-                                   min="1" max="10" 
-                                   title="Please enter the total number of guests in your party">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Song Requests <span style="font-weight:normal; font-size:0.95em; opacity:0.8;">(Let us know what songs you'd love to hear! Only the first is required.)</span></label>
-                            <div id="song-requests-container">
-                                <input type="text" id="SongRequest1" name="Song Request 1" required maxlength="100" placeholder="Song Request 1 (required)">
-                    </div>
-                            <button type="button" id="add-song-request" class="add-song-btn" style="display: none;">
-                                <span class="add-icon">+</span> Add Another Song Request
-                            </button>
-                        </div>
-                        
-                        <!-- reCAPTCHA -->
-                        <div class="form-group">
-                            <div class="g-recaptcha" data-sitekey="6LdRXEwrAAAAAFWEW4mS0Rs4RnrQwhkPHMyvckGs"></div>
-                        </div>
-                        
-                        <!-- Hidden honeypot field to prevent spam -->
-                        <input type="text" name="_gotcha" style="display:none">
-                        
-                        <button type="submit" class="form-submit">Submit RSVP</button>
-                        
-                        <div class="form-message"></div>
-                        <p class="form-note">* Required fields</p>
-                    </div>
-                </form>
+                <div class="form-embed-container">
+                  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScTuHCH7SwRICxAOmTQypFtXDzXhqM-Nq6RIjcPmMkulbTgZg/viewform?embedded=true" width="640" height="1339" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
             </div>
         </div>
 

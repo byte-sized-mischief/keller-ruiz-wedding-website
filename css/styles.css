@@ -1450,4 +1450,34 @@ h2 {
   display: block;
 }
 
+.form-embed-container {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 2rem auto;
+  height: auto;
+}
+
+.form-embed-container iframe {
+  width: 100%;
+  min-height: 600px;
+  height: 80vh;
+  border: none;
+  background: #111;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 700px) {
+  .form-embed-container {
+    max-width: 100vw;
+    padding: 0 1rem;
+  }
+  .form-embed-container iframe {
+    min-width: 0;
+    width: 100%;
+    height: 90vh;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
