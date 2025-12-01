@@ -71,6 +71,7 @@
             <ul class="nav-links">
                 <li><a href="#story">Our Story</a></li>
                 <li><a href="#details">Details</a></li>
+                <li><a href="#schedule">Schedule</a></li>
                 <li><a href="#rsvp">RSVP</a></li>
                 <li><a href="#help">Help</a></li>
                 <li><a href="#venue">Venue</a></li>
@@ -172,7 +173,7 @@ Since then, their relationship has been going strong for 8 years. During that ti
                 <h2>Important Details</h2>
                 <!-- This is what shows in the collapsed section -->
                 <div class="details-preview">
-                    <p>Click to view dress code and other important details</p>
+                    <p>Click to view dress code and other miscellaneous details</p>
                 </div>
             </div>
         </section>
@@ -193,15 +194,91 @@ Since then, their relationship has been going strong for 8 years. During that ti
                         <h3>With lots of love for the little ones</h3>
                         <p>To allow all guests to relax and enjoy the evening, we kindly request that children under 14 not attend. Please contact us if you'd like help arranging childcare—we'd love to make it easier for you to celebrate with us.</p>
             </div>
+                <div class="detail-item">
+                        <h3>Wedding and Reception loction</h3>
+                        <p> Please note that the ceremony and reception will take place at the same location. Doors will open to guests at 4pm.</p>
+            </div>
+                <div class="detail-item">
+                        <h3>Transportation and Parking Details</h3>
+                        <p> Come back soon!</p>
+            </div>
+                </div>
+            </div>
+        </div>
 
-                    <div class="detail-item">
-                        <h3>Ceremony</h3>
+        <!-- Venue, Travel, and Lodging Section -->
+        <section id="venue" class="section modal-trigger" data-modal="venue-modal">
+            <div class="container">
+                <h2>Venue and Lodging</h2>
+                <div class="venue-preview">
+                    <p>Click to view venue location and lodging informations</p>
+        </div>
+    </div>
+</section>
+
+        <!-- Venue Modal -->
+        <div id="venue-modal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close venue details">&times;</button>
+                <h2>Map</h2>
+                <div class="venue-travel">
+                <div class="venue-grid">
+                    <iframe class="map-embed" src="https://www.google.com/maps/d/embed?mid=13c31PdEpPjOsw-Yaleq1jEhyYkZRAs0&ehbc=2E312F&noprof=1" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                   </div>
+                <h2>Lodging</h2>
+                <div class="venue-travel">
+                <div class="venue-grid">
+                   <h3>Hotels</h3>
+                   <p>We have two hotel options available for our guests!</p>
+                   <p>Please note that to encourage safe driving we intend to provide scheduled between the venue and either hotel. This option will not be available for those who opt to stay in tiny homes, RV parks, or camp.</p>
+                   <p><b>La Quinta at Mount Pleasant</b></p>
+                   <p>Check back soon! Site under maintenance</p>
+                </div>
+                </div>
+                    <!-- <div class="transportation-options">
+                        <a href="#" class="button luxury-btn" target="_blank">
+                            <span class="luxury-btn__text">Get Transportation</span>
+                        </a>
+                        <a href="#" class="button luxury-btn" target="_blank">
+                            <span class="luxury-btn__text">Book your Lodging</span>
+                        </a>
+                    </div> -->
+
+                    </div>
+            </div>
+        </div>
+
+        <!-- Schedule Section -->
+        <section id="schedule" class="section modal-trigger" data-modal="schedule-modal">
+            <div class="container">
+                <h2>Timeline</h2>
+                <div class="details-preview">
+                    <p>Click here to get information on the flow of the evening</p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Schedule Modal -->
+        <div id="schedule-modal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close schedule information">&times;</button>
+                <h2>Series of events</h2>
+                <div class="schedule-grid">
+                <div class="schedule-item">
+                        <h2>Welcome Hour</h2>
+                        <p>4 to 5 pm</p>
+                        <p>Doors will open to guests at 4pm, with pre-ceremony drinks from 4:20 to 4:50.</p>
+
+        </div>
+                <div class="schedule-item">
+                        <h2>Ceremony</h2>
                         <p>5 to 5:30pm</p>
                         <p>The ceremony will begin promptly at 5. Please arrive at least 30 minutes early to be seated.</p>
                         <p>We invite you to be fully present with us during our ceremony. Please silence and put away phones and cameras — we promise to share the professional photos soon after!</p>
-        </div>
-                    <div class="detail-item">
-                        <h3>Cocktail Hour</h3>
+        </div> 
+                    <div class="schedule-item">
+                        <h2>Cocktail Hour</h2>
                         <p>5:30 to 6:30pm</p>
                         <p>Cocktail hour will take place inside the venue and in the outdoor lounge area.</p> 
 
@@ -210,8 +287,8 @@ Since then, their relationship has been going strong for 8 years. During that ti
                         <p>There will be an open bar with both alcoholic and non-alcoholic drink selections, as well as a charcuterie spread available for our guests.</p>
         </div>
 
-                    <div class="detail-item">
-                        <h3>Reception Schedule</h3>
+                    <div class="schedule-item">
+                        <h2>Reception Schedule</h2>
                         <p>A reception shall follow the cocktail hour with the following schedule:</p>
                         <p style="text-indent: 45px;">6:20pm - The reception area will open up to guests to find their seat.</p>
                         <p style="text-indent: 45px;">6:30pm - Cocktail hour officially ends.</p>
@@ -228,26 +305,10 @@ Since then, their relationship has been going strong for 8 years. During that ti
                         <p style="text-indent: 45px;">10:20pm - Grand Send Off for the Bride and Groom</p>
                         <p style="text-indent: 45px;">10:30pm - End of the evening</p>
     </div>
-
-                    <div class="detail-item">
-                        <h3>Travel and Lodging</h3>
-                        <p>Check back soon!</p>
-                    </div>
-                </div>
+              </div>  
             </div>
         </div>
-
-        <!-- RSVP Section -->
-        <section id="rsvp" class="section modal-trigger" data-modal="rsvp-modal">
-            <div class="container">
-                <h2>RSVP</h2>
-                <!-- This shows in the collapsed section -->
-                <div class="rsvp-preview">
-                    <p>Click here to respond to your invitation</p>
-        </div>
-    </div>
-</section>
-
+        
         <!-- I Want to Help Section -->
         <section id="help" class="section modal-trigger" data-modal="help-modal">
             <div class="container">
@@ -290,6 +351,17 @@ Since then, their relationship has been going strong for 8 years. During that ti
             </div>
 </section>
 
+        <!-- RSVP Section -->
+        <section id="rsvp" class="section modal-trigger" data-modal="rsvp-modal">
+            <div class="container">
+                <h2>RSVP</h2>
+                <!-- This shows in the collapsed section -->
+                <div class="rsvp-preview">
+                    <p>Click here to respond to your invitation</p>
+        </div>
+    </div>
+</section>
+
         <!-- Registry Modal -->
         <div id="registry-modal" class="modal">
             <div class="modal-content">
@@ -308,43 +380,26 @@ Since then, their relationship has been going strong for 8 years. During that ti
             </div>
         </div>
 
-        <!-- Venue Section -->
-        <section id="venue" class="section modal-trigger" data-modal="venue-modal">
-            <div class="container">
-                <h2>Venue and Transportation</h2>
-                <div class="venue-preview">
-                    <p>Click to view venue location, directions, and transportation options</p>
-        </div>
-    </div>
-</section>
-
-        <!-- Venue Modal -->
-        <div id="venue-modal" class="modal">
+        <!-- RSVP Modal -->
+        <div id="rsvp-modal" class="modal">
             <div class="modal-content">
-                <button class="modal-close" aria-label="Close venue details">&times;</button>
-                <h2>Venue and Transportation</h2>
-                <div class="venue-travel">
-                    <iframe class="map-embed" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3344.7422643924806!2d-95.07769222387635!3d33.03692007065757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864a00915b0b8b45%3A0xafffe31c2edf35df!2s1212%20Co%20Rd%202347%2C%20Pittsburg%2C%20TX%2075686!5e0!3m2!1sen!2sus!4v1748820143239!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <div class="transportation-options">
-                        <a href="#" class="button luxury-btn" target="_blank">
-                            <span class="luxury-btn__text">Get Transportation</span>
-                        </a>
-                        <a href="#" class="button luxury-btn" target="_blank">
-                            <span class="luxury-btn__text">Book your Lodging</span>
-                        </a>
-                    </div>
-                    </div>
+                <button class="modal-close" aria-label="Close RSVP form">&times;</button>
+                <h2>RSVP</h2>
+                <div class="form-embed-container">
+                  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScTuHCH7SwRICxAOmTQypFtXDzXhqM-Nq6RIjcPmMkulbTgZg/viewform?embedded=true" width="640" height="1339" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
             </div>
         </div>
 
-        <!-- Future Livestream Section (commented out for now) -->
-        <!--
+
+        <!-- Future Livestream Section (commented out for now)
+        
         <section id="livestream" class="section">
     <div class="container">
                 <h2>Wedding Livestream</h2>
                 <div class="livestream-container">
-                    <!-- Livestream embed will go here -->
-        <!--    </div>
+                     Livestream embed will go here
+            </div>
             </div>
         </section>
         -->

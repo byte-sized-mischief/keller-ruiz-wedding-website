@@ -470,7 +470,7 @@ h2 {
   margin: 1rem auto;
   position: relative;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(176, 167, 167, 0.1);
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -560,6 +560,7 @@ h2 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  float: left;
 }
 
 /* Scroll Indicator */
@@ -1026,6 +1027,7 @@ h2 {
 }
 .form-group input[type=number] {
   -moz-appearance: textfield;
+  appearance: none;
 }
 
 .form-group input[type=number]::-webkit-outer-spin-button,
@@ -1204,6 +1206,7 @@ h2 {
 
 /* Section specific modal styles */
 .details-grid,
+.schedule-grid,
 .registry-content,
 .venue-travel {
   margin-top: 2rem;
@@ -1223,6 +1226,7 @@ h2 {
 /* Preview text for each section */
 .details-preview,
 .rsvp-preview,
+.schedule-preview,
 .help-preview,
 .registry-preview,
 .venue-preview {
